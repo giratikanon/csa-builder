@@ -21,7 +21,7 @@
             %input.input-xlarge#input-email
             %p.help-block
       .location-controls
-        %h4.location-title 
+        %h4.location-title Add your locations to the map
         .marker-controls 
           .marker-container{:data => {:key => "home"}}
             .marker-label Home
@@ -29,6 +29,6 @@
           .marker-container{:data => {:key => "work"}}
             .marker-label Work
             %img.image-marker{:src => "/assets/work-basic.png"}
-      %button.btn.btn-large{:onclick => "submitMarkers()"} Submit
+      %button.btn.btn-large{:onclick => "submitMarkers(); return false;"} Submit
 
 

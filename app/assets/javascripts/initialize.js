@@ -34,6 +34,8 @@ function initialize() {
   
   });
   
+   $(".marker-container").draggable();
+  
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(locationSuccess, locationError);
   }
