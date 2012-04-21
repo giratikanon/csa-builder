@@ -29,18 +29,20 @@ function initialize() {
     debug: true
   });
   
-  $(".marker-container").click(function() {
-  	addMarker($(this).attr("data-key"));
   
-  });
   
-   $(".marker-container").draggable();
+  
   
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(locationSuccess, locationError);
   }
   
+  $(".marker-container").click(function() {
+  	addMarker($(this).attr("data-key"));
   
+  });
+  
+  // $(".marker-container").draggable();
   
 }
 
