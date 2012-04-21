@@ -228,7 +228,6 @@ GEM
       rspec (~> 2.0)
       rspec-instafail (~> 0.2.0)
       ruby-progressbar (~> 0.0.10)
-    growl (1.0.3)
     guard (1.0.1)
       ffi (>= 0.5.0)
       thor (~> 0.14.6)
@@ -285,6 +284,7 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
       railties (>= 3.0.0)
+    kgio (2.7.4)
     launchy (2.1.0)
       addressable (~> 2.2.6)
     less (2.0.11)
@@ -293,6 +293,8 @@ GEM
     less-rails (2.1.8)
       actionpack (>= 3.1)
       less (~> 2.0.7)
+    libnotify (0.7.2)
+      ffi (~> 1.0.0)
     libv8 (3.3.10.4)
     mail (2.4.4)
       i18n (>= 0.4.0)
@@ -369,8 +371,10 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (~> 0.14.6)
+    raindrops (0.8.0)
     rake (0.9.2.2)
-    rb-fsevent (0.9.1)
+    rb-inotify (0.8.8)
+      ffi (>= 0.5.0)
     rb-readline (0.4.2)
     rdoc (3.12)
       json (~> 1.4)
@@ -438,6 +442,10 @@ GEM
     unf (0.0.5)
       unf_ext
     unf_ext (0.0.4)
+    unicorn (4.2.1)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
     vcr (2.0.0)
     warden (1.1.1)
       rack (>= 1.0)
@@ -471,7 +479,6 @@ DEPENDENCIES
   factory_girl_rails
   foreman
   fuubar
-  growl
   guard
   guard-bundler
   guard-coffeescript
@@ -492,6 +499,7 @@ DEPENDENCIES
   kaminari
   launchy
   letter_opener!
+  libnotify
   mocha
   mongoid (~> 2.4)
   mongoid-rspec!
@@ -507,7 +515,7 @@ DEPENDENCIES
   pry
   pry-doc
   rails (~> 3.2)
-  rb-fsevent
+  rb-inotify
   rb-readline
   rspec-instafail
   rspec-rails (~> 2.9)
@@ -517,11 +525,13 @@ DEPENDENCIES
   simple_form!
   simplecov
   spork-rails
+  therubyracer
   thin
   timecop
   twitter-bootstrap-rails!
   twitter_bootstrap_form_for!
   uglifier
+  unicorn
   vcr (~> 2.0)
   webmock
   whenever
