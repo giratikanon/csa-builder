@@ -25,6 +25,11 @@ body {
 
 header {
 	color: $text-color;
+	@include gradient(#106406, #1d7f12);
+	box-shadow: -1px 1px 4px #333;
+	z-index: 70;
+	position: relative;
+	border-bottom: 1px solid #666;
 	
 	.title-container {
 		padding: 1em;
