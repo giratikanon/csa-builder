@@ -2,3 +2,9 @@ MONGODB [DEBUG] Logging level is currently :debug which could negatively impact 
 MONGODB (0ms) admin['$cmd'].find({:ismaster=>1}).limit(-1)
 MONGODB [DEBUG] Logging level is currently :debug which could negatively impact client-side performance. You should set your logging level no lower than :info in production.
 MONGODB (0ms) admin['$cmd'].find({:ismaster=>1}).limit(-1)
+MONGODB [DEBUG] Logging level is currently :debug which could negatively impact client-side performance. You should set your logging level no lower than :info in production.
+MONGODB (12ms) admin['$cmd'].find({:ismaster=>1}).limit(-1)
+MONGODB (15ms) heroku_app4185085['$cmd'].find({:getnonce=>1}).limit(-1)
+MONGODB (11ms) heroku_app4185085['$cmd'].find({"authenticate"=>1, "user"=>"heroku_app4185085", "nonce"=>"9b38f27475a93411", "key"=>"1f8a76c2a6be7069adf2d92f7127bdc9"}).limit(-1)
+MONGODB (10ms) heroku_app4185085['$cmd'].find({:getnonce=>1}).limit(-1)
+MONGODB (10ms) heroku_app4185085['$cmd'].find({"authenticate"=>1, "user"=>"heroku_app4185085", "nonce"=>"64f87674f7c30309", "key"=>"19907900192f3e74cbee047263c05ed8"}).limit(-1)
