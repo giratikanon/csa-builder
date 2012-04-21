@@ -1,4 +1,4 @@
-var mapbox, cartodb;
+var map, mapbox, cartodb, markers = [];
 
 function locationSuccess(position) {
   // do something with position.coords.latitude and position.coords.longitude
@@ -10,7 +10,7 @@ function locationError(msg) {
 }
 
 function initialize() {
-  var map = new L.Map('map-canvas').setView(new L.LatLng(40.675573,-73.96212), 11);
+  map = new L.Map('map-canvas').setView(new L.LatLng(40.675573,-73.96212), 11);
   var mapboxUrl = 'http://{s}.tiles.mapbox.com/v3/csabuilder.map-m2jqpyy8/{z}/{x}/{y}.png',
       mapbox = new L.TileLayer(mapboxUrl, {maxZoom: 17});
   map.addLayer(mapbox,true);	
@@ -27,7 +27,33 @@ function initialize() {
     debug: true
   });
   
+  $(".marker-container").click(function() {
+  	console.log("!");
+  	addMarker($(this).attr("data-key"));
+  
+  });
+  
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(success, error);
   }
+  
+  
+  
+}
+
+function addMarker(type) {
+
+	var Icon = L.Icon.extend({
+	    iconUrl: '/assets/' + type + '-basic.png',
+	    iconSize: new L.Point(32, 37),
+	    iconAnchor: new L.Point(22, 94),
+	    popupAnchor: new L.Point(-3, -76)
+	});
+	
+	var markerIcon = new Icon();
+	
+	var marker = new L.Marker(map.getCenter(), { icon: markerIcon, draggable: true });
+	map.addLayer(marker);
+	markers.push(marker);
+	
 }
