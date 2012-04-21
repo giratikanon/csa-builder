@@ -1,6 +1,7 @@
 Csabuilder::Application.routes.draw do
 
-  resources :beta_signups
+  resources :locations
+  #resources :beta_signups
 
   devise_for :users, :controllers => { :confirmations => "users/confirmations",
                                        :omniauth_callbacks => "users/omniauth_callbacks",
