@@ -21,3 +21,24 @@ $(document).ready(function(){
 	
 });
 
+function submitMarkers() { // assumes markers global variable markers
+  var data = {
+    name: $('#input-name').val(),
+    email: $('#input-email').val(),
+    markers: markerPositionArray(markers)
+  }
+  jQuery.post('/locations', data, submissionSuccess);
+}
+
+function submissionSuccess(response) {
+  alert('Thanks, got it!');
+}
+
+function markerPositionArray(leafletMarkers) {
+  var tuples = [];
+  leafletMarkers.forEach(function(marker) {
+    var position = marker.getLatLng();
+    tuples.push([position.lat, position.lng]);
+  });
+  return tuples;
+}
