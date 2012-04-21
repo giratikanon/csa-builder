@@ -44,6 +44,7 @@ gem 'jquery-rails'
 # gem 'rails-backbone'
 
 # Utilities
+gem 'active_attr'
 gem 'capistrano'
 gem 'thin'
 gem 'foreman'
