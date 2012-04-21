@@ -11,14 +11,13 @@ require 'faraday'
 class Cartodb
 
   attr_reader :connection
-  attr_accessor :user_id
+  attr_accessor :user_id, :locations
 
   def initialize(*args)
     options = args.extract_options!
-    @connection = Faraday.new('https://csabuilder.cartodb.com') #do |builder|
-      #builder.request :json
-    #end
+    @connection = Faraday.new('https://csabuilder.cartodb.com')
     @user_id = options[:user_id]
+    @locations = options[:locations] || []
   end
 
   def create_user(name, longitude, latitude)
@@ -29,8 +28,8 @@ class Cartodb
       req.params['api_key'] = ENV['CARTODB_KEY']
       req.params['q'] = cartodb_user_insert(name, longitude, latitude)
     end
-    response
-    #JSON.parse(response.env[:body])
+    @user_id = JSON.parse(response.env[:body])['rows'].first['cartodb_id']
+    self
   end
 
   def add_location(longitude, latitude)
@@ -41,27 +40,20 @@ class Cartodb
       req.params['api_key'] = ENV['CARTODB_KEY']
       req.params['q'] = cartodb_user_insert(@user_id, longitude, latitude)
     end
-    JSON.parse(response.env[:body])
-  end
-
-  def tget(name, longitude, latitude)
-    Typhoeus::Request.get(
-      "https://csabuilder.cartodb.com/api/v1/sql?" +
-      "api_key=#{CARTODB_KEY}" +
-      "q=#{cartodb_user_insert(name, longitude, latitude)}"
-    )
+    @locations << JSON.parse(response.env[:body])['rows'].first['cartodb_id']
+    self
   end
 
   protected
 
   def cartodb_user_insert(name, longitude, latitude)
-    "INSERT%20INTO%20users(name,the_geom)%20VALUES(" +
-    name.to_s +
+    "INSERT INTO users(name,the_geom) VALUES(" +
+    "'#{name.to_s}'" +
     ",ST_SetSrid(st_makepoint(" +
     longitude.to_s +
     "," +
     latitude.to_s +
-    "),4326))%20RETURNING%20cartodb_id"
+    "),4326)) RETURNING cartodb_id"
   end
 
   def cartodb_location_insert(user_id, longitude, latitude)
