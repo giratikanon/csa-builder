@@ -10,7 +10,7 @@
     /[if lt IE 9]
       %script{ :src => "http://html5shim.googlecode.com/svn/trunk/html5.js" }
     = stylesheet_link_tag "application", "http://code.leafletjs.com/leaflet-0.3.1/leaflet.css", "http://code.leafletjs.com/leaflet-0.3.1/leaflet.ie.css"
-    = javascript_include_tag "application"
+    = javascript_include_tag "http://code.leafletjs.com/leaflet-0.3.1/leaflet.js", "application"
     = csrf_meta_tags
     = yield :head
   %body

@@ -1,6 +1,7 @@
 /*other stuff*/
 html, body {height: 100%; margin: 0; padding: 0; overflow:hidden;}
-#map_canvas {height: 100%;}
+.content {height: 100%;}
+#map-canvas {height: 100%;}
 
 /*Marker infowindow*/
 div.leaflet-popup {position:absolute; display:block; width:214px; padding:0;}
