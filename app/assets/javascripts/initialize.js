@@ -59,7 +59,7 @@ function addMarker(type) {
 	var Icon = L.Icon.extend({
 	    iconUrl: '/assets/' + type + '-basic.png',
 	    iconSize: new L.Point(32, 37),
-	    iconAnchor: new L.Point(22, 94),
+	    iconAnchor: new L.Point(16, 37),
 	    popupAnchor: new L.Point(-3, -76)
 	});
 	
