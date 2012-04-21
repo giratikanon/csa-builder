@@ -52,13 +52,13 @@ class Cartodb
     false
   end
 
-  def create_user(name)
+  def create_user(name, email)
     response = @connection.get do |req|
       req.url '/api/v1/sql'
       req.headers['Accept'] = 'application/json'
       req.headers['Content-Type'] = 'application/json'
       req.params['api_key'] = ENV['CARTODB_KEY']
-      req.params['q'] = cartodb_user_insert(name)
+      req.params['q'] = cartodb_user_insert(name, email)
     end
     self.user_id = JSON.parse(response.env[:body])['rows'].first['cartodb_id']
     self
@@ -79,10 +79,10 @@ class Cartodb
 
   protected
 
-  def cartodb_user_insert(name)
-    "INSERT INTO users(name) VALUES(" +
-    "'#{name.to_s}'" +
-    ") RETURNING cartodb_id"
+  def cartodb_user_insert(name, email)
+    "INSERT INTO users(name,email) "
+    "VALUES('#{name.to_s}','#{email.to_s}') " +
+    "RETURNING cartodb_id"
   end
 
   def cartodb_location_insert(user_id, longitude, latitude)
