@@ -9,7 +9,7 @@ class LocationsController < ApplicationController
     location = location.create_user(params[:name], params[:email])
     session[:user_id] = location.user_id
     respond_to do |format|
-      format.json { render :status => 200 }
+      format.json { render :nothing => true, :status => 200 }
     end
     #respond_with(location, :location => location_path()
     #  if location.valid?
