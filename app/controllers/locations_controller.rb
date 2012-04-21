@@ -4,9 +4,13 @@ class LocationsController < ApplicationController
 
   # '/locations.json'
   def create
-
     location = Cartodb.new
     location = location.create_user(params[:name], params[:email])
+    # getting in latitude, longitude
+    # need in longitude, latitude
+    params[:markers].each do |key, value|
+      location.add_location(value.last, value.first)
+    end
     session[:user_id] = location.user_id
     respond_to do |format|
       format.json { render :nothing => true, :status => 200 }

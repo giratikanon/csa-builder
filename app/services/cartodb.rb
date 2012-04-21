@@ -71,7 +71,7 @@ class Cartodb
       req.headers['Accept'] = 'application/json'
       req.headers['Content-Type'] = 'application/json'
       req.params['api_key'] = ENV['CARTODB_KEY']
-      req.params['q'] = cartodb_user_insert(user_id, longitude, latitude)
+      req.params['q'] = cartodb_location_insert(user_id, longitude, latitude)
     end
     self.locations << JSON.parse(response.env[:body])['rows'].first['cartodb_id']
     self
@@ -87,12 +87,12 @@ class Cartodb
 
   def cartodb_location_insert(user_id, longitude, latitude)
     "INSERT INTO user_locations(user_id,the_geom) VALUES(" +
-    @user_id.to_s +
+    user_id.to_s +
     ",ST_SetSrid(st_makepoint(" +
     longitude.to_s +
     "," +
     latitude.to_s +
-    "),4326))"
+    "),4326)) RETURNING cartodb_id"
   end
 
 end
