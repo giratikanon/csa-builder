@@ -4,9 +4,14 @@
     %h2 Show us where you live, work and hang out to help organizers choose pick-up locations
 .content
   #map-canvas
+  #tooltip
+    .tooltip-triangle-border
+    .tooltip-triangle
+    %p.tooltip-text 
+      %strong DRAG ME
   .form-container
     .form-title
-      %h3 Show your interest
+      %h3 Tell us about yourself
     %form.form-horizontal
       %fieldset
         .control-group
@@ -21,7 +26,7 @@
             %input.input-xlarge#input-email
             %p.help-block
       .location-controls
-        %h4.location-title Where would you pick up food? Add locations
+        %h4.location-title Where would you pick up food? <br />Click to add locations to the map
         .marker-controls 
           .marker-container{:data => {:key => "home"}}
             .marker-label Home
@@ -29,6 +34,8 @@
           .marker-container{:data => {:key => "work"}}
             .marker-label Work
             %img.image-marker{:src => "/assets/work-basic.png"}
-      %button.btn.btn-large{:onclick => "submitMarkers(); return false;"} Submit
+      %button.btn{:onclick => "submitMarkers(); return false;"} Submit
+    .form-message Thank you for your interest!
+    	
 
 

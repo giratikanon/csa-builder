@@ -27,11 +27,22 @@ function submitMarkers() { // assumes markers global variable markers
     email: $('#input-email').val(),
     markers: markerPositionArray(markers)
   }
-  jQuery.post('/locations', data, submissionSuccess);
+  
+  $.ajax({
+    url: '/locations',
+    type: "POST",
+    data: data,
+    success: submissionSuccess,
+    error: function() { console.log("error"); }
+  });
+  
 }
 
 function submissionSuccess(response) {
-  alert('Thanks, got it!');
+	console.log("!");
+  $(".form-title").hide();
+  $(".form-vertical").hide();
+  $(".form-message").fadeIn();
 }
 
 function markerPositionArray(leafletMarkers) {

@@ -61,6 +61,8 @@ header {
 		color: $base-color;
 		width: 6em;
 		font-weight: bold;
+		text-align: left;
+		margin-left: 1em;
 	}
 	
 	.form-horizontal .controls {
@@ -83,8 +85,14 @@ header {
 		margin: 0 0 1em;
 	}
 	
-	.btn-large {
+	.btn {
 		float: right;
+	}
+	
+	.form-message {
+		display: none;
+		font-size: 1.6em;
+		text-align: center;
 	}
 }
 

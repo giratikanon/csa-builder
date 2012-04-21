@@ -42,8 +42,16 @@ function initialize() {
   
   });
   
-  // $(".marker-container").draggable();
+  /*
+$(".image-marker").draggable();
   
+  $("#map-canvas").droppable({
+  	drop: function(event, ui) {
+  		console.log(event, ui);
+  	}
+  });
+  
+*/
 }
 
 function addMarker(type) {
