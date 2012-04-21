@@ -70,4 +70,31 @@ header {
 	.location-title {
 		margin: 0 0 1em;
 	}
+	
+	.btn-large {
+		float: right;
+	}
+}
+
+.marker-controls {
+
+	float: left;
+	width: 100%;
+	background-image: none;
+	margin: 0 0 1em;
+	
+	.marker-container {
+		float: left;
+		
+		.marker-label {
+			float: left;
+			width: 100%;
+			margin: 0 0 .5em;
+		}
+		
+		.image-marker {
+			float: left;
+		}
+	}
+	
 }

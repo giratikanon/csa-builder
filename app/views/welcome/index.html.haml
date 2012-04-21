@@ -1,7 +1,7 @@
 %header
   .title-container
-    %h1 Help start a CSA in your neighborhood
-    %h2 Show your interest and where you would pick up food
+    %h1 Do you want fresh food delivered weekly to your neighborhood?
+    %h2 Show us where you live, work and hang out to help organizers choose pick-up locations
 .content
   #map-canvas
   .form-container
@@ -21,8 +21,14 @@
             %input.input-xlarge#input-email
             %p.help-block
       .location-controls
-        %h4.location-title Where would you pick up food? 
-        .location-hint 
-          Add a location
+        %h4.location-title Tell us ...
+        .marker-controls 
+          .marker-container{:data => {:key => "home"}}
+            .marker-label Home
+            %img.image-marker{:src => "/assets/home-basic.png"}
+          .marker-container
+            .marker-label Work
+            %img.image-marker{:src => "/assets/work-basic.png"}
+      %button.btn.btn-large Submit
 
 
