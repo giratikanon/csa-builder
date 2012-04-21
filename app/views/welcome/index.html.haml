@@ -1,9 +1,12 @@
 %header
-  %h1 CSA Builder
-  %h2 Help start a CSA by telling us where you would pick up food
+  .title-container
+    %h1 Help start a CSA in your neighborhood
+    %h2 Show your interest and where you would pick up food
 .content
   #map-canvas
   .form-container
+    .form-title
+      %h3 Show your interest
     %form.form-horizontal
       %fieldset
         .control-group
@@ -13,12 +16,13 @@
             %p.help-block
       %fieldset
         .control-group
-          %label.control-label{:for => "input-email"} Email
+          %label.control-label{:for => "input-email"} E-mail
           .controls
             %input.input-xlarge#input-email
             %p.help-block
       .location-controls
-        .location-title Where would you pick up food? 
-        .location-hint Drag this pin onto the map to add a location
+        %h4.location-title Where would you pick up food? 
+        .location-hint 
+          Add a location
 
 

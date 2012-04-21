@@ -1,7 +1,73 @@
+$base-color: #146b0b;
+$text-color: #FFFFFF;
+
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $color;
+    -moz-box-shadow:inset $top $left $blur $color;
+    box-shadow:inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+
+body {
+	background-color: $base-color;
+}
+
+header {
+	color: $text-color;
+	
+	.title-container {
+		padding: 1em;
+	}
+	
+	h1 {
+		font-size: 2.4em;
+	}
+	
+	h2 {
+		font-size: 1.5em;
+		font-weight: normal;
+	}
+
+}
+
 .form-container {
 	position: absolute;
 	background-color: white;
 	left: 2em;
 	bottom: 2em;
 	padding: 2em;
+	border: 1px solid #999;
+	@include box-shadow(2px, 2px, 2px, #999);
+	width: 25em;
+	
+	.form-horizontal .control-label {
+		color: $base-color;
+		width: 6em;
+		font-weight: bold;
+	}
+	
+	.form-horizontal .controls {
+		margin-left: 8em;
+	}
+	
+	.form-horizontal .control-group {
+		margin-bottom: 1em;
+	}
+	
+	.input-xlarge {
+		width: 16em;
+	}
+	
+	.form-title {
+	  margin: 0 0 1.5em;
+	}
+	
+	.location-title {
+		margin: 0 0 1em;
+	}
 }
