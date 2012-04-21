@@ -36,12 +36,14 @@ function submitMarkers() { // assumes markers global variable markers
     error: function() { console.log("error"); }
   });
   
+  $(".form-status").html("Submitting...");
+  
 }
 
 function submissionSuccess(response) {
-	console.log("!");
   $(".form-title").hide();
-  $(".form-vertical").hide();
+  $(".form-horizontal").hide();
+   $(".form-status").hide();
   $(".form-message").fadeIn();
 }
 

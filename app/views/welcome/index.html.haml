@@ -26,7 +26,8 @@
             %input.input-xlarge#input-email
             %p.help-block
       .location-controls
-        %h4.location-title Where would you pick up food? <br />Click to add locations to the map
+        %h4.location-title Where would you pick up food? 
+        %h5 Click to add markers to the map, then drag them
         .marker-controls 
           .marker-container{:data => {:key => "home"}}
             .marker-label Home
@@ -34,8 +35,17 @@
           .marker-container{:data => {:key => "work"}}
             .marker-label Work
             %img.image-marker{:src => "/assets/work-basic.png"}
-      %button.btn{:onclick => "submitMarkers(); return false;"} Submit
+          .marker-container{:data => {:key => "weights"}}
+            .marker-label Gym
+            %img.image-marker{:src => "/assets/weights-basic.png"}
+          .marker-container{:data => {:key => "group"}}
+            .marker-label Friend
+            %img.image-marker{:src => "/assets/group-basic.png"}
+          .marker-container{:data => {:key => "university"}}
+            .marker-label School
+            %img.image-marker{:src => "/assets/university-basic.png"}
+      %button.btn.btn-large.btn-success{:onclick => "submitMarkers(); return false;"} Submit
     .form-message Thank you for your interest!
-    	
+    .form-status 
 
 

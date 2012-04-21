@@ -13,6 +13,12 @@ $text-color: #FFFFFF;
   }
 }
 
+@mixin border-radius($radius) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+
 @mixin gradient($from, $to) {
   background: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
   background: -moz-linear-gradient(top,  $from, $to);
@@ -81,9 +87,6 @@ header {
 	  margin: 0 0 1.5em;
 	}
 	
-	.location-title {
-		margin: 0 0 1em;
-	}
 	
 	.btn {
 		float: right;
@@ -93,6 +96,11 @@ header {
 		display: none;
 		font-size: 1.6em;
 		text-align: center;
+	}
+	
+	h5 {
+		font-weight: normal;
+		margin: 0 0 1em;
 	}
 }
 
@@ -105,16 +113,72 @@ header {
 	
 	.marker-container {
 		float: left;
+		width: 4em;
+		text-align: center;
+		border: 1px solid #ddd;
+		@include border-radius(4px);
+		background: #f9f9f9;
+		@include box-shadow(0, 2px, 2px, rgba(0,0,0,0.3));
+		margin: 0 1em 0 0;
+		cursor: pointer;
+		padding: 0.5em 0;
+
+		
+		&:last-child {
+		  margin-right: 0;
+		}
 		
 		.marker-label {
-			float: left;
-			width: 100%;
 			margin: 0 0 .5em;
 		}
 		
 		.image-marker {
-			float: left;
 		}
 	}
 	
+}
+
+
+#tooltip {
+	position: absolute;
+	right: 150px;
+	width: 150px;
+	padding: 10px;
+	top: 227px;
+	background-color: #fffae1;
+	border: 1px solid #666;
+	box-shadow: 2px 2px 1px #999;
+	-webkit-box-shadow: 2px 2px 1px #999;
+	display: none;
+}
+
+.tooltip-triangle {
+	border-color: #B7CDFF transparent transparent transparent;
+	border-style: solid;
+	border-width: 10px;
+	border-top: 16px solid transparent;
+	border-left: 16px solid transparent;
+	border-right: 16px solid #fffae1;
+	border-bottom: 16px solid transparent;
+	height: 0;
+	position: absolute;
+	display: block;
+	left: -32.5px;
+	top: 15px;
+}
+
+.tooltip-triangle-border {
+	display: block;
+	content: "";
+	border-color: white transparent transparent transparent;
+	border-style: solid;
+	border-top: 18px solid transparent;
+	border-left: 18px solid transparent;
+	border-right: 18px solid #666;
+	border-bottom: 18px solid transparent;
+	height: 0px;
+	width: 0px;
+	position: absolute;
+	left: -36.5px;
+	top: 13px;
 }
