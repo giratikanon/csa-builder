@@ -1,5 +1,14 @@
 var mapbox, cartodb;
 
+function locationSuccess(position) {
+  // do something with position.coords.latitude and position.coords.longitude
+  // for example, re-center the embedded map on the user's position
+}
+
+function locationError(msg) {
+  // if the user can't be found . . .
+}
+
 function initialize() {
   var map = new L.Map('map-canvas').setView(new L.LatLng(40.675573,-73.96212), 11);
   var mapboxUrl = 'http://{s}.tiles.mapbox.com/v3/csabuilder.map-m2jqpyy8/{z}/{x}/{y}.png',
@@ -17,5 +26,8 @@ function initialize() {
     auto_bound: false,
     debug: true
   });
+  
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(success, error);
+  }
 }
-
