@@ -80,7 +80,7 @@ class Cartodb
   protected
 
   def cartodb_user_insert(name, email)
-    "INSERT INTO users(name,email) "
+    "INSERT INTO users(name,email) " +
     "VALUES('#{name.to_s}','#{email.to_s}') " +
     "RETURNING cartodb_id"
   end

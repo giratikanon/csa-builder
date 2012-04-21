@@ -4,6 +4,7 @@ class LocationsController < ApplicationController
 
   # '/locations.json'
   def create
+
     location = Cartodb.new
     location = location.create_user(params[:name], params[:email])
     session[:user_id] = location.user_id
