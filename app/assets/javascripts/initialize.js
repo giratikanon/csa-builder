@@ -60,7 +60,7 @@ function addMarker(type) {
 	    iconUrl: '/assets/' + type + '-basic.png',
 	    shadowUrl: '/assets/icon-shadow.png',
 	    iconSize: new L.Point(32, 37),
-	    shadowSize: new L.Point(51, 37),
+	    shadowSize: new L.Point(38, 37),
 	    iconAnchor: new L.Point(16, 37),
 	    popupAnchor: new L.Point(-3, -76)
 	});
