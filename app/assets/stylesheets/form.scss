@@ -44,6 +44,7 @@ header {
 	border: 1px solid #999;
 	@include box-shadow(2px, 2px, 2px, #999);
 	width: 25em;
+	z-index: 10;
 	
 	.form-horizontal .control-label {
 		color: $base-color;
