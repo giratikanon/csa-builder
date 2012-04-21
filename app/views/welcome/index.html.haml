@@ -1,2 +1,24 @@
-%h1 Welcome to the Alpha Application
+%header
+  %h1 CSA Builder
+  %h2 Help start a CSA by telling us where you would pick up food
+.content
+  #map-canvas
+  .form
+    %form.form-horizontal
+      %fieldset
+        .control-group
+          %label.control-label{:for => "input-name"} Name
+          .controls
+            %input.input-xlarge#input-name
+            %p.help-block
+      %fieldset
+        .control-group
+          %label.control-label{:for => "input-email"} Email
+          .controls
+            %input.input-xlarge#input-email
+            %p.help-block
+      .location-controls
+        .location-title Where would you pick up food? 
+        .location-hint Drag this pin onto the map to add a location
+
 

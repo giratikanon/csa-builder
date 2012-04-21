@@ -77,7 +77,7 @@ group :development do
   gem 'hpricot'
   gem 'ruby_parser'
   gem 'letter_opener', :git => 'git://github.com/ryanb/letter_opener.git'
-  gem 'rails-footnotes'
+  # gem 'rails-footnotes'
 end
 
 group :development, :test do
