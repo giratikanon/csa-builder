@@ -28,7 +28,6 @@ function initialize() {
   });
   
   $(".marker-container").click(function() {
-  	console.log("!");
   	addMarker($(this).attr("data-key"));
   
   });
