@@ -13,6 +13,12 @@ $text-color: #FFFFFF;
   }
 }
 
+@mixin border-radius($radius) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+
 @mixin gradient($from, $to) {
   background: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
   background: -moz-linear-gradient(top,  $from, $to);
@@ -97,15 +103,24 @@ header {
 	
 	.marker-container {
 		float: left;
+		width: 4em;
+		text-align: center;
+		border: 1px solid #ddd;
+		@include border-radius(4px);
+		background: #f9f9f9;
+		@include box-shadow(0, 2px, 2px, rgba(0,0,0,0.3));
+		margin: 0 1em 0 0;
+		cursor: pointer;
+		
+		&:last-child {
+		  margin-right: 0;
+		}
 		
 		.marker-label {
-			float: left;
-			width: 100%;
 			margin: 0 0 .5em;
 		}
 		
 		.image-marker {
-			float: left;
 		}
 	}
 	
