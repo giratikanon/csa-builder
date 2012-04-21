@@ -13,8 +13,11 @@ defaults: &defaults
   logger: true
 
 development:
-  <<: *defaults
-  database: csabuilder_development
+  host: ds031947.mongolab.com
+  port: 31947
+  username: heroku_app4185085
+  password: ohj94tovqatv5al7cl8lnhhs3
+  database: heroku_app4185085
 
 test:
   <<: *defaults
@@ -22,12 +25,7 @@ test:
 
 # set these environment variables on your prod server
 production:
-  <<: *defaults
-  host: <%= ENV['MONGOID_HOST'] %>
-  port: <%= ENV['MONGOID_PORT'] %>
-  username: <%= ENV['MONGOID_USERNAME'] %>
-  password: <%= ENV['MONGOID_PASSWORD'] %>
-  database: <%= ENV['MONGOID_DATABASE'] %>
+  uri: <%= ENV['MONGOLAB_URI'] %>
   # slaves:
   #   - host: slave1.local
   #     port: 27018
